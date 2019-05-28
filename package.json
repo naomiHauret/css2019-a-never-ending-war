@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run now-build",
+    "build:presentation": "mdx-deck build deck.mdx --no-html",
+    "build:assets": "cp -r static dist/",
+    "now-build": "npm run build:presentation && npm run build:assets",
+    "now-dev": "mdx-deck -p 3000 deck.mdx",
+    "deploy": "now --target production"
   },
   "author": "Naomi Hauret",
   "license": "MIT",

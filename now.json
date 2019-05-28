@@ -1,9 +1,23 @@
 {
   "version": 2,
+  "alias": "css2019-a-never-ending-war-web2day.now.sh",
   "builds": [
     {
-      "src": "deck.mdx",
-      "use": "@now/mdx-deck"
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/static/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=1, maxage=0, stale-while-revalidate=31536000"
+      },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "index.html",
+      "dest": "/index.html"
     }
   ]
 }
