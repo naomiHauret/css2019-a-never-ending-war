@@ -1,0 +1,20 @@
+{
+  "name": "css2019-a-never-ending-war",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Naomi Hauret",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
+    "dotize": "^0.3.0",
+    "mdx-deck": "^2.3.2"
+  },
+  "dependencies": {
+    "@mdx-deck/export": "^2.3.2"
+  }
+}

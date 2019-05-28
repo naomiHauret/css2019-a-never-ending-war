@@ -1,0 +1,50 @@
+import { Head } from '@mdx-deck/components'
+import customTheme from 'styles/theme'
+import FullScreenVideo from 'components/FullScreenVideo'
+import Layout from 'components/Layout'
+import { t } from "utils/translation"
+import Translate from 'components/Translate'
+
+export const themes = [customTheme]
+
+<Head>
+  <title>{t('base.seo.title', { locale: 'fr' })}</title>
+  <link rel="preload" href="/static/videos/intro.webm" as="video" />
+  <link rel="preload" href="/static/videos/intro-static.webm" as="video" />
+  <link rel="preload" href="/static/videos/empty.webm" as="video" />
+  <link rel="preload" href="/static/videos/birth-hopes.webm" as="video" />
+  <link rel="preload" href="/static/videos/everyone-torment.webm" as="video" />
+
+</Head>
+<FullScreenVideo name="intro" />
+
+---
+
+<FullScreenVideo name="intro-static" />
+
+---
+
+<Layout locale="locale">
+
+  # <Translate id="presentationTitle" />
+
+</Layout>
+
+---
+
+<FullScreenVideo name="birth-hopes" />
+
+---
+
+  <FullScreenVideo name="everyone-torment" />
+
+---
+
+<Layout locale="locale">
+
+  # <Translate id="hardAtScale" />
+
+</Layout>
+
+---
+
