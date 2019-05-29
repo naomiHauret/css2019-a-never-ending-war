@@ -1,0 +1,43 @@
+
+
+import FullScreenVideo from 'components/FullScreenVideo'
+import { Appear } from '@mdx-deck/components'
+import Layout from 'components/Layout'
+import Container from 'components/Container'
+import Translate from 'components/Translate'
+
+<Layout>
+    <h1>
+      <Translate id="introduction.storytime" />
+    </h1>
+</Layout>
+
+---
+
+<Layout>
+  <Appear>
+    <h1>
+      <Translate id="introduction.onceUponATime" values={{number: 23}} />
+    </h1>
+      <p>
+      <Container>
+        <Translate id="introduction.birthOnTheBattleField" />
+      </Container>
+      </p>
+  </Appear>
+</Layout>
+
+---
+
+<Layout>
+    <h1>
+      <Translate id="introduction.hope" />
+    </h1>
+    <Container>
+    <Appear>
+      <p><Translate id="introduction.slowly" /></p>
+      <p><Translate id="introduction.turnsIntoDeception" /></p>
+      <p><Translate id="introduction.thenIntoWar" /></p>
+    </Appear>
+    </Container>
+</Layout>

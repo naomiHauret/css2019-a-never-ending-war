@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
+    "start": "mdx-deck index.js",
     "build": "npm run now-build",
-    "build:presentation": "mdx-deck build deck.mdx --no-html",
+    "build:presentation": "mdx-deck build index.js --no-html",
     "build:assets": "cp -r static dist/",
     "now-build": "npm run build:presentation && npm run build:assets",
-    "now-dev": "mdx-deck -p 3000 deck.mdx",
+    "now-dev": "mdx-deck -p 3000 index.js",
     "deploy": "now --target production"
   },
   "author": "Naomi Hauret",
@@ -20,6 +20,7 @@
     "mdx-deck": "^2.3.2"
   },
   "dependencies": {
-    "@mdx-deck/export": "^2.3.2"
+    "@mdx-deck/export": "^2.3.2",
+    "react-spring": "^8.0.20"
   }
 }

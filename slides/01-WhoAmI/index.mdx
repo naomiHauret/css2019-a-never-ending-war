@@ -1,0 +1,22 @@
+import {Appear } from '@mdx-deck/components'
+import FullScreenVideo from 'components/FullScreenVideo'
+import Translate from 'components/Translate'
+
+<FullScreenVideo orientation="portrait" name="me" />
+  <ul style={{
+    position: 'absolute',
+    bottom: '60px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    listStyle: 'none',
+    textShadow: "blue 0px 0 0.5em",
+  }}>
+  <Appear>
+    <li>Naomi <small><b style={{textTransform: 'uppercase'}}>Hauret</b></small></li>
+    <li> <Translate id="whoAmI.role" values={{experience: 3}} /></li>
+  </Appear>
+</ul>

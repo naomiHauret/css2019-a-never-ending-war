@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import { SplitRight } from 'mdx-deck/layouts'
+import React from "react"
 import FullScreenVideo from 'components/FullScreenVideo'
 import Footer from 'components/Footer'
 
-const Layout = (props) => {
+const SplitLayout = (props) => {
   const { children, locale } = props
 
   return <div
@@ -19,10 +20,12 @@ const Layout = (props) => {
       position: 'relative',
       zIndex: 1,
     }}>
-      {children}
+      <SplitRight>
+        {children}
+      </SplitRight>
     </div>
     <Footer />
   </div>
-  }
+}
 
-  export default Layout
+export default SplitLayout

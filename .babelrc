@@ -8,6 +8,7 @@
         ],
         "alias": {
           "components": "./components",
+          "slides": "./slides",
           "utils": "./utils",
           "styles": "./styles",
           "translations": "./translations",

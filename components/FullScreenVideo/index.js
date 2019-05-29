@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 
 const FullScreenVideo = (props) => {
 
@@ -12,7 +13,7 @@ const FullScreenVideo = (props) => {
         dangerouslySetInnerHTML={{
           __html: `
             <video
-              style="pointer-events: none; width: 100%; height: 100%; object-fit: cover;"
+              style="pointer-events: none; width: 100%; height: 100%; object-fit: ${props.orientation === "portrait" ? "contain" : "cover"};"
               controls="false"
               loop
               autoplay
@@ -22,6 +23,9 @@ const FullScreenVideo = (props) => {
     `
         }}
       />
+}
+FullScreenVideo.defaultProps = {
+  orientation: 'landscape',
 }
 
 export default FullScreenVideo
