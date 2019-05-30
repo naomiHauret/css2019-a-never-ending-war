@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@mdx-deck/export": "^2.3.2",
-    "react-spring": "^8.0.20"
+    "react-spring": "^8.0.20",
+    "react-tweet-embed": "^1.2.2",
+    "super-react-gist": "^1.0.4"
   }
 }

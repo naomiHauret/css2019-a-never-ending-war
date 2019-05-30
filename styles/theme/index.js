@@ -13,7 +13,9 @@ export default {
     text: '#ffffff',
     background: 'black',
   },
-
+  pre: {
+    fontSize: '1rem',
+  },
   // Elements
   heading: {
     margin: 0,

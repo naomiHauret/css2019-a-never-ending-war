@@ -3,7 +3,7 @@ import FullScreenVideo from 'components/FullScreenVideo'
 import Footer from 'components/Footer'
 
 const Layout = (props) => {
-  const { children, locale } = props
+  const { children, locale, video } = props
 
   return <div
     style={{
@@ -14,7 +14,7 @@ const Layout = (props) => {
       justifyContent: 'center',
       alignItems: 'center',
     }}>
-    <FullScreenVideo name="empty" />
+    <FullScreenVideo name={video} />
     <div style={{
       position: 'relative',
       zIndex: 1,
@@ -23,6 +23,10 @@ const Layout = (props) => {
     </div>
     <Footer />
   </div>
-  }
+}
 
-  export default Layout
+Layout.defaultProps = {
+  video: "empty",
+}
+
+export default Layout

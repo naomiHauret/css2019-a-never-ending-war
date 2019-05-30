@@ -1,5 +1,297 @@
+import Layout from 'components/Layout'
 import FullScreenVideo from 'components/FullScreenVideo'
+import Container from 'components/Container'
+import Translate from 'components/Translate'
+import { Appear } from '@mdx-deck/components'
+import Gist from 'super-react-gist' // <-- import the library
+
+<Layout>
+  <h1>
+    <Translate id="myExperience.title" />
+  </h1>
+</Layout>
 
 ---
 
-<FullScreenVideo name="everyone-torment" />
+<Layout>
+  <div style={{
+    fontSize: '5rem',
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+    textShadow: 'blue 0px 0.075em 0px, black 0px 0.135em 0px, blue 0px 0px 24px '
+  }}>
+    PostCSS <br/>
+    + Atomic CSS (TailwindCSS) <br />
+    + CSS Modules <br />
+    + CSS-in-JS (Emotion) <br />
+    + architecture minimaliste
+  </div>
+</Layout>
+
+---
+
+```
+// architecture
+
+.
+├── components
+│   └── Button
+│      ├── index.js
+│      ├── index.mdx
+│      └── styles.local.css       # style scopé au bouton
+├── pages
+│   ├── medium
+│   │    ├──index.js
+│   │    └── index.local.css      # style scopé à la page
+│   │
+│   └── styleguide
+│       ├── index.mdx
+│       └── tokens
+│           └── Palette.js
+│
+├── postcss.config.js
+├── styles
+│   ├── base
+│   │   └── _reboot.css
+│   │
+│   ├── index.css
+│   │
+│   ├── tokens
+│   │   ├── helper.js
+│   │   └── index.js
+│   │
+│   ├── typo
+│   │   └── _index.css
+│   │
+│   │
+│   └── vendors
+│
+└── tailwind.config.js      # config de tailwind
+```
+
+---
+
+```js
+// postcss.config.js
+
+module.exports = {
+  plugins: [
+    require('postcss-easy-import')({}),         // importer un fichier CSS dans un autre
+    require('postcss-normalize')({}),           // Normalize
+    require('postcss-preset-env')({             // CSS4
+      stage: 0,
+    }),
+    require('postcss-custom-media')({           // Media query custom
+      importFrom: [
+        './tailwind.js',
+      ]
+    }),
+    require('tailwindcss')('./tailwind.js'),    // Tailwind
+    require('cssnano')({                        // CSS Nano (minification en prod)
+      preset: [
+        'default',
+        { "discardComments": { "removeAll": false } }   // conserve certains commentaires pour PurgeCSS
+      ],
+    }),
+
+  ],
+}
+```
+
+---
+
+```
+.
+├── base
+│   └── _reboot.css           # Normalize + "reset" d'éléments
+├── index.css                 # import des autres fichiers
+├── tokens
+│   ├── helper.js             # Fonction pour accéder à mes définitions de media query depuis mon CSS in JS
+│   └── index.js
+├── typo
+│   └── _index.css            # définitions @font-face
+└── vendors                   # override du style de librairies externes
+
+```
+
+---
+
+<Layout>
+  <Translate id="myExperience.designTokens" />
+</Layout>
+
+---
+
+```js
+// src/styles/tokens/index.js
+
+const myDesignSystem = {
+  breakpoints: {
+    xs: 480,
+    sm: 720,
+    md: 991,
+    lg: 1024,
+    xl: 1260,
+  },
+  type: {
+    sizes: {
+      base: 16,
+      20: 20,
+    },
+    fontFamily: {
+      base: '"Objectivity", "system"',
+    },
+    fontWeight: {
+      200: 200,
+      500: 500
+    },
+  },
+  colors: {
+    'gray-100': "#A7A7A7",
+    'gray-200': "#747474",
+    'gray-300': "#979797",
+    'violet-100': "#5D32DD",
+    'black-100': "#090B1F",
+  },
+  borderWidths: {
+    1: '1px',
+    2: '2px',
+  },
+  shadows: {
+    default: '0 2px 4px 0 rgba(0,0,0,0.2)',
+  },
+  // ...
+}
+```
+
+---
+
+<Layout>
+  <Translate id="myExperience.designTokensTailwind" />
+</Layout>
+
+---
+
+```js
+// tailwind.js
+const tokens = require('./src/styles/tokens.js').default
+
+module.exports = {
+  // ...
+
+  // Media queries custom
+  customMedia: {
+    "--screen-sm": tokens.breakpoints.sm ,
+    "--screen-md": tokens.breakpoints.md,
+    "--screen-lg": tokens.breakpoints.lg,
+    "--screen-xl": tokens.breakpoints.xl - 1,
+  },
+
+  screens: { // variantes responsives à générer
+    ...tokens.breakpoints,
+  },
+
+  // ... déclaration des classes à générer depuis nos tokens ...
+  fontWeights: {
+    inherit: "inherit",
+    ...tokens.type.fontWeight,
+  },
+}
+}
+```
+
+---
+
+<Layout>
+  <Translate id="myExperience.baseCSS" />
+</Layout>
+
+
+---
+
+```css
+// src/styles/base/_reboot.css
+/*
+  Normalize
+*/
+@import-normalize;
+
+/*
+  Custom selectors
+*/
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--inputs input, select, textarea;
+
+/*
+  Base styles
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ... */
+
+/* Reset */
+html,
+body {
+  @apply .overflow-x-hidden;
+  @apply .font-base;
+}
+
+:--inputs,
+button {
+  @apply .font-family-inherit;
+  @apply .text-inherit;
+  @apply .bg-transparent;
+}
+
+/* ... */
+
+
+```
+
+---
+
+<Layout>
+  <Container>
+    <Translate id="myExperience.withAtomic" />
+  </Container>
+</Layout>
+
+---
+
+<Layout>
+  <Container>
+    <Translate id="myExperience.withModules" />
+  </Container>
+</Layout>
+
+---
+
+<Layout>
+  <Container>
+    <Translate id="myExperience.withCssInJs" />
+  </Container>
+</Layout>
+
+---
+
+<Layout>
+  <Container>
+    <Translate id="myExperience.theming" />
+  </Container>
+</Layout>
+
+---
+
+<Gist url='https://gist.github.com/naomiHauret/e726fab528b624fb059bfe968edcd01e' />
+
+---
+
+<Layout>
+  <Container>
+    <Translate id="myExperience.prod" />
+  </Container>
+</Layout>

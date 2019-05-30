@@ -19,7 +19,7 @@ const socials = [
 const Footer = () => <footer
    style={{
      position: 'fixed',
-     bottom: '30px',
+     bottom: '60px',
      right: '20px',
      color: '#ffffff',
      zIndex: 1
@@ -29,11 +29,11 @@ const Footer = () => <footer
     {
       socials.map((social, key) => <li style={{
         display: 'flex',
-        height: '15px',
-        width:  '15px',
+        height: '25px',
+        width:  '25px',
         marginRight: key < socials.length - 1 ? '20px' : 0,
       }} key={key}>
-       <a style={{display: "block", width: "100%", height: "100%", color: 'inherit',  filter: 'drop-shadow(0px 0px 5px cyan)'}} href={social.href}>
+       <a style={{display: "block", width: "100%", height: "100%", color: 'inherit',  filter: 'drop-shadow(0px 0px 5px blue)'}} href={social.href}>
         {social.icon}
         <span style={{display: "none"}}>
           {social.label}

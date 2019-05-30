@@ -1,5 +1,94 @@
+import Layout from 'components/Layout'
 import FullScreenVideo from 'components/FullScreenVideo'
+import Container from 'components/Container'
+import Translate from 'components/Translate'
+import TweetEmbed from 'react-tweet-embed'
+import { Appear } from '@mdx-deck/components'
+
+<FullScreenVideo name="peace" />
 
 ---
 
-<FullScreenVideo name="everyone-torment" />
+<Layout>
+  <h1>  <Translate id="stylingPeace.makePeace" /></h1>
+</Layout>
+
+---
+
+<Layout>
+  <Translate id="stylingPeace.askGoodQuestions" />
+</Layout>
+
+---
+
+<Layout>
+    <ul style={{
+      fontSize: "2.15rem",
+      paddingLeft: '70px',
+    }}>
+    <Appear>
+      {
+        ['projectType', 'projectSize', 'projectTeam', 'sharedStyles', 'theming', 'isStyleImportant', 'roadmap', 'statefulComponent', 'templatingLanguage', 'rendering', 'browsers', 'doILikeIt'].map((question, i) => <li key={i}>
+          <Translate id={`stylingPeace.questions.${question}`} />
+        </li>)
+      }
+    </Appear>
+    </ul>
+</Layout>
+
+---
+
+<Layout>
+  <Translate id="stylingPeace.whatDoYouWant" />
+</Layout>
+
+---
+
+
+<Layout>
+  <Translate id="stylingPeace.testRespectTriforce" />
+</Layout>
+
+---
+
+<Layout>
+    <ul style={{
+        textAlign:  'center',
+            fontSize: '5rem',
+            fontWeight: 'bold',
+            fontFamily: 'Montserrat',
+            textShadow: 'blue 0px 8px 0, black 0px 16px 0, darkcyan 1px 0px 6px'
+          }}>
+    <Appear>
+      {
+        ['me', 'team', 'client'].map((aspect, i) => <li key={i}>
+          <Translate id={`stylingPeace.respect.${aspect}`} />
+        </li>)
+      }
+    </Appear>
+    </ul>
+</Layout>
+
+---
+
+<Layout>
+    <h1>  <Translate id="stylingPeace.workflow.label" /></h1>
+</Layout>
+
+---
+
+<Layout>
+    <ul style={{
+      fontSize: "2.15rem",
+      paddingLeft: '70px',
+    }}>
+    <Appear>
+      {
+        ['steroidWorkflow', 'useDesignTokens', 'useStyleguide', 'goMobileFirst', 'goProgressive'].map((advize, i) => <li key={i}>
+          <Translate id={`stylingPeace.workflow.${advize}`} />
+        </li>)
+      }
+    </Appear>
+    </ul>
+</Layout>
+

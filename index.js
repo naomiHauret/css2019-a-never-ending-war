@@ -13,8 +13,11 @@ import { slides as five } from 'slides/04-PeopleAgainstTools/index.mdx'
 import { slides as six } from 'slides/05-StylingPeace/index.mdx'
 import { slides as seven } from 'slides/06-MyExperience/index.mdx'
 import { slides as eight } from 'slides/07-Conclusion/index.mdx'
+import highlight from '@mdx-deck/themes/syntax-highlighter-prism'
 
-export const themes = [customTheme]
+
+
+export const themes = [customTheme, highlight]
 export const slides = [
   ...one, ...two, ...three ,...four ,...five ,...six ,...seven ,...eight // nine -- it's the 10 Crack Commandments - ONE !
 ]
